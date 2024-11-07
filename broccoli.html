@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$broccoli</title>
+    <link rel="icon" href="broccolipfpop.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet"> <!-- Add Google Font -->
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: url('myn.png'), auto; /* Set custom cursor image */
+        }
+        video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+            transform: translate(-50%, -50%);
+        }
+        .ticker {
+            position: relative;
+            overflow: hidden;
+            white-space: nowrap;
+            width: 100%;
+            height: 150px; /* Increased height for better visibility */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .animated-text {
+            font-family: 'Luckiest Guy', cursive; /* Use the new font */
+            color: white;
+            font-size: 10em; /* Font size */
+            font-weight: bold; /* Thicker font */
+            animation: colorChange 1s infinite; /* Animation for color change */
+            display: inline-block;
+        }
+
+        @keyframes colorChange {
+            0% { color: red; }
+            20% { color: yellow; }
+            40% { color: green; }
+            60% { color: blue; }
+            80% { color: orange; }
+            100% { color: purple; }
+        }
+
+        #broccoliText {
+            display: none; /* Initially hidden */
+            position: absolute; /* Position absolutely */
+            top: 0%; /* Position at the top center */
+            left: 50%;
+            transform: translateX(-50%); /* Center it horizontally */
+            font-size: 3em; /* Same size as other text */
+            color: white; /* Text color */
+            animation: colorChange 1s infinite; /* Animation for color change */
+            font-family: 'Luckiest Guy', cursive; /* Use the new font */
+        }
+
+        #caText {
+            display: none; /* Initially hidden */
+            position: absolute; /* Position absolutely */
+            bottom: 5px; /* Position at the bottom left */
+            left: 10px; /* Margin from the left */
+            font-size: 1.5em; /* Smaller font size for CA: */
+            color: white; /* Text color */
+            animation: colorChange 1s infinite; /* Animation for color change */
+            font-family: 'Luckiest Guy', cursive; /* Use the new font */
+        }
+    </style>
+</head>
+<body>
+
+    <video id="backgroundVideo" muted loop>
+        <source src="vid1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <audio id="backgroundAudio" loop>
+        <source src="audio1.mp3" type="audio/mpeg">
+        Your browser does not support the audio tag.
+    </audio>
+
+    <div class="ticker">
+        <div id="clickHere" class="animated-text">CLICK!</div> <!-- Animated text -->
+    </div>
+
+    <div id="broccoliText">$BROCCOLI</div> <!-- New text -->
+    <div id="caText">CA:yooooooooooo</div> <!-- New small text -->
+
+    <script>
+        // Function to toggle play and pause for video and audio
+        function toggleMedia() {
+            var video = document.getElementById('backgroundVideo');
+            var audio = document.getElementById('backgroundAudio');
+
+            if (video.paused) {
+                video.play(); // Play video
+                audio.play(); // Play audio
+            } else {
+                video.pause(); // Pause video
+                audio.pause(); // Pause audio
+            }
+        }
+
+        // Add event listener for user interaction
+        document.body.addEventListener('click', function() {
+            toggleMedia(); // Toggle play/pause on click
+            var clickHere = document.getElementById('clickHere');
+            clickHere.style.display = 'none'; // Hide text on first click
+            document.getElementById('broccoliText').style.display = 'block'; // Show $BROCCOLI text
+            document.getElementById('caText').style.display = 'block'; // Show CA: text
+        });
+    </script>
+<!--tentar meter lyrics em baixo
+
+</body>
+</html>
